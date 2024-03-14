@@ -1,17 +1,31 @@
 package com.client.junit.model;
 
-public enum Currency {
+public class Currency {
 
-	EURO("EUR"), UNITED_STATES_DOLLAR("USD"), INDIAN_RUPEE("INR");
+    public CurrencyType type;
+    public Amount amount;
 
-	private final String textValue;
+    public Currency(CurrencyType type, Amount amount) {
+        this.type = type;
+        this.amount = amount;
+    }
 
-	Currency(final String textValue) {
-		this.textValue = textValue;
-	}
+    public Currency() {
+    }
 
-	@Override
-	public String toString() {
-		return textValue;
-	}
+    public CurrencyType getType() {
+        return type;
+    }
+
+    public void setType(CurrencyType type) {
+        this.type = type;
+    }
+
+    public Amount getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Amount amount) {
+        this.amount = amount;
+    }
 }

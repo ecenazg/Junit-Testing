@@ -5,9 +5,9 @@ import java.math.BigDecimal;
 public class AmountImpl implements Amount {
 
 	BigDecimal value;
-	Currency currency;
+	CurrencyType currency;
 
-	public AmountImpl(BigDecimal value, Currency currency) {
+	public AmountImpl(BigDecimal value, CurrencyType currency) {
 		super();
 		this.value = value;
 		this.currency = currency;
@@ -22,12 +22,12 @@ public class AmountImpl implements Amount {
 		return value;
 	}
 
-	public void setCurrency(Currency currency) {
+	public void setCurrency(CurrencyType currency) {
 		this.currency = currency;
 	}
 
 	@Override
-	public Currency getCurrency() {
+	public CurrencyType getCurrency() {
 		return currency;
 	}
 

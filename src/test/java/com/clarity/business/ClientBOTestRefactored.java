@@ -10,10 +10,10 @@ import org.junit.Test;
 
 import com.client.junit.business.ClientBO;
 import com.client.junit.business.ClientBOImpl;
-import com.client.junit.business.exception.DifferentCurrenciesException;
+import com.client.junit.business.services.DifferentCurrenciesException;
 import com.client.junit.model.Amount;
 import com.client.junit.model.AmountImpl;
-import com.client.junit.model.Currency;
+import com.client.junit.model.CurrencyType;
 import com.client.junit.model.Product;
 import com.client.junit.model.ProductImpl;
 import com.client.junit.model.ProductType;
@@ -27,10 +27,10 @@ public class ClientBOTestRefactored {
 			throws DifferentCurrenciesException {
 
 		Amount[] amounts = {
-				new AmountImpl(new BigDecimal("5.0"), Currency.EURO),
-				new AmountImpl(new BigDecimal("6.0"), Currency.EURO) };
+				new AmountImpl(new BigDecimal("5.0"), CurrencyType.EURO),
+				new AmountImpl(new BigDecimal("6.0"), CurrencyType.EURO) };
 
-		Amount expected = new AmountImpl(new BigDecimal("11.0"), Currency.EURO);
+		Amount expected = new AmountImpl(new BigDecimal("11.0"), CurrencyType.EURO);
 		
 		List<Product> products = createProductListWithAmounts(amounts);
 
@@ -45,11 +45,11 @@ public class ClientBOTestRefactored {
 			throws DifferentCurrenciesException {
 
 		Amount[] amounts = {
-				new AmountImpl(new BigDecimal("5.0"), Currency.EURO),
-				new AmountImpl(new BigDecimal("6.0"), Currency.INDIAN_RUPEE) };
+				new AmountImpl(new BigDecimal("5.0"), CurrencyType.EURO),
+				new AmountImpl(new BigDecimal("6.0"), CurrencyType.INDIAN_RUPEE) };
 
 		List<Product> products = createProductListWithAmounts(amounts);
-
+		//TODO: add 2 more assertions
 		@SuppressWarnings("unused")
 		Amount actual = clientBO.getClientProductsSum(products);
 
@@ -60,7 +60,7 @@ public class ClientBOTestRefactored {
 			throws DifferentCurrenciesException {
 
 		Amount[] amounts = {};
-		Amount expected = new AmountImpl(BigDecimal.ZERO, Currency.EURO);
+		Amount expected = new AmountImpl(BigDecimal.ZERO, CurrencyType.EURO);
 
 		List<Product> products = createProductListWithAmounts(amounts);
 

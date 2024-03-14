@@ -1,14 +1,11 @@
 package com.client.junit.model;
+public enum CurrencyType {
 
-/**
- * Available types of customers
- */
-public enum ProductType {
-	LOAN("LN"), CREDIT("CRD"), BANK_GUARANTEE("BG");
+	EURO("EUR"), DOLLAR("USD"), INDIAN_RUPEE("INR");
 
 	private final String textValue;
 
-	ProductType(final String textValue) {
+	CurrencyType(final String textValue) {
 		this.textValue = textValue;
 	}
 

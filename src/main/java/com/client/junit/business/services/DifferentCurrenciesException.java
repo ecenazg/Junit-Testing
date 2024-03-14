@@ -1,4 +1,4 @@
-package com.client.junit.business.exception;
+package com.client.junit.business.services;
 
 public class DifferentCurrenciesException extends Exception {
 

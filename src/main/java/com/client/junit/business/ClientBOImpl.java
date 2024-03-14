@@ -3,10 +3,10 @@ package com.client.junit.business;
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.client.junit.business.exception.DifferentCurrenciesException;
+import com.client.junit.business.services.DifferentCurrenciesException;
 import com.client.junit.model.Amount;
 import com.client.junit.model.AmountImpl;
-import com.client.junit.model.Currency;
+import com.client.junit.model.CurrencyType;
 import com.client.junit.model.Product;
 
 public class ClientBOImpl implements ClientBO {
@@ -21,7 +21,7 @@ public class ClientBOImpl implements ClientBO {
 			throws DifferentCurrenciesException {
 
 		if (products.size() == 0)
-			return new AmountImpl(BigDecimal.ZERO, Currency.EURO);
+			return new AmountImpl(BigDecimal.ZERO, CurrencyType.EURO);
 
 		if (!isCurrencySameForAllProducts(products)) {
 			throw new DifferentCurrenciesException();
@@ -29,7 +29,7 @@ public class ClientBOImpl implements ClientBO {
 
 		BigDecimal productSum = calculateProductSum(products);
 
-		Currency firstProductCurrency = products.get(0).getAmount()
+		CurrencyType firstProductCurrency = products.get(0).getAmount()
 				.getCurrency();
 
 		return new AmountImpl(productSum, firstProductCurrency);
@@ -47,7 +47,7 @@ public class ClientBOImpl implements ClientBO {
 	private boolean isCurrencySameForAllProducts(List<Product> products)
 			throws DifferentCurrenciesException {
 
-		Currency firstProductCurrency = products.get(0).getAmount()
+		CurrencyType firstProductCurrency = products.get(0).getAmount()
 				.getCurrency();
 
 		for (Product product : products) {
