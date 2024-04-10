@@ -1,6 +1,6 @@
 # Junit-Testing
 
-This Java project provides a comprehensive suite of unit tests designed to validate the functionality of various model and service classes, leveraging JUnit for efficient and reliable testing.
+This Java project provides a comprehensive suite of unit tests, white box tests and table-based test scenarios designed to validate the functionality of various model and service classes, leveraging JUnit for efficient and reliable testing.
 
 ## Description
 
