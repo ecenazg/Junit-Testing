@@ -4,10 +4,8 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import com.client.junit.business.services.DifferentCurrenciesException;
+import com.client.junit.model.*;
 import com.client.junit.model.Amount;
-import com.client.junit.model.AmountImpl;
-import com.client.junit.model.CurrencyType;
-import com.client.junit.model.Product;
 
 public class ClientBOImpl implements ClientBO {
 
@@ -60,4 +58,5 @@ public class ClientBOImpl implements ClientBO {
 
 		return true;
 	}
+
 }

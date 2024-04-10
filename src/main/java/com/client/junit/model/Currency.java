@@ -10,22 +10,13 @@ public class Currency {
         this.amount = amount;
     }
 
-    public Currency() {
-    }
-
     public CurrencyType getType() {
         return type;
-    }
-
-    public void setType(CurrencyType type) {
-        this.type = type;
     }
 
     public Amount getAmount() {
         return amount;
     }
 
-    public void setAmount(Amount amount) {
-        this.amount = amount;
-    }
+
 }

@@ -12,4 +12,5 @@ public interface Product {
 	ProductType getType();
 
 	Amount getAmount();
+	public void setAmount(Amount amount);
 }

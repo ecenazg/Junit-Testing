@@ -1,9 +1,7 @@
 package com.client.junit.business.services;
 
-import com.client.junit.model.Currency;
-import com.client.junit.model.CurrencyType;
-import com.client.junit.model.Amount;
-import com.client.junit.model.AmountImpl;
+import com.client.junit.model.*;
+
 import java.math.BigDecimal;
 
 public class StaticCurrencyConverter {

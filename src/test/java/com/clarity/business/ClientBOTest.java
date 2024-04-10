@@ -26,50 +26,38 @@ public class ClientBOTest {
 	private StaticCurrencyConverter converter = new StaticCurrencyConverter();
 	@Test
 	public void testClientProductSum() throws DifferentCurrenciesException {
-
 		List<Product> products = new ArrayList<Product>();
-
 		products.add(new ProductImpl(100, "Product 15",
 				ProductType.BANK_GUARANTEE, new AmountImpl(
 						new BigDecimal("5.0"), CurrencyType.EURO)));
-
 		products.add(new ProductImpl(120, "Product 20",
 				ProductType.BANK_GUARANTEE, new AmountImpl(
 						new BigDecimal("6.0"), CurrencyType.EURO)));
-
 		Amount temp = clientBO.getClientProductsSum(products);
 
 		assertEquals(CurrencyType.EURO, temp.getCurrency());
 		assertEquals(new BigDecimal("11.0"), temp.getValue());
-		//TODO: add more 2 assertion
+
 	}
 
 	@Test(expected = DifferentCurrenciesException.class)
 	public void testClientProductSum1() throws DifferentCurrenciesException {
-
 		List<Product> products = new ArrayList<Product>();
-
 		products.add(new ProductImpl(100, "Product 15",
 				ProductType.BANK_GUARANTEE, new AmountImpl(
 						new BigDecimal("5.0"), CurrencyType.INDIAN_RUPEE)));
-
 		products.add(new ProductImpl(120, "Product 20",
 				ProductType.BANK_GUARANTEE, new AmountImpl(
 						new BigDecimal("6.0"), CurrencyType.EURO)));
-		//TODO: add more 2 assertion
 		@SuppressWarnings("unused")
 		Amount temp = null;
-
 		temp = clientBO.getClientProductsSum(products);
 	}
 
 	@Test
 	public void testClientProductSum2() {
-
 		List<Product> products = new ArrayList<Product>();
-
 		Amount temp = null;
-
 		try {
 			temp = clientBO.getClientProductsSum(products);
 		} catch (DifferentCurrenciesException e) {
@@ -77,7 +65,4 @@ public class ClientBOTest {
 		assertEquals(CurrencyType.EURO, temp.getCurrency());
 		assertEquals(BigDecimal.ZERO, temp.getValue());
 	}
-
-
-
 }

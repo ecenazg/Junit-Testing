@@ -8,7 +8,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({StringHelperTest.class, ArraysCompareTest.class, QuickBeforeAfterTest.class, StringHelperParameterizedTest.class})
-public class DummyTestSuite {
+@SuiteClasses({CurrencyConverterTest.class})
+public class CurrencySuite {
 
 }

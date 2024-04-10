@@ -2,6 +2,7 @@ package com.client.junit.model;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Client Model API.
@@ -70,5 +71,19 @@ public class ClientImpl implements Client {
 	public void setProductAmount(BigDecimal productAmount) {
 		this.productAmount = productAmount;
 	}
+
+	public List<Product> filterProductsByType(ProductType type) {
+		return this.products.stream()
+				.filter(product -> product.getType().equals(type))
+				.collect(Collectors.toList());
+	}
+
+	public List<Product> filterProductsByAmountRange(BigDecimal min, BigDecimal max) {
+		return this.products.stream()
+				.filter(product -> product.getAmount().getValue().compareTo(min) >= 0 &&
+						product.getAmount().getValue().compareTo(max) <= 0)
+				.collect(Collectors.toList());
+	}
+
 
 }

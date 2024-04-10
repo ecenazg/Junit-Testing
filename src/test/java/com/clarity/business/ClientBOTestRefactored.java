@@ -37,7 +37,6 @@ public class ClientBOTestRefactored {
 		Amount actual = clientBO.getClientProductsSum(products);
 
 		assertAmount(actual, expected);
-		//TODO add 1 more assertion
 	}
 
 	@Test(expected = DifferentCurrenciesException.class)
@@ -49,7 +48,6 @@ public class ClientBOTestRefactored {
 				new AmountImpl(new BigDecimal("6.0"), CurrencyType.INDIAN_RUPEE) };
 
 		List<Product> products = createProductListWithAmounts(amounts);
-		//TODO: add 2 more assertions
 		@SuppressWarnings("unused")
 		Amount actual = clientBO.getClientProductsSum(products);
 
@@ -68,7 +66,6 @@ public class ClientBOTestRefactored {
 
 
 		assertAmount(actual, expected);
-		//TODO add 1 more assertion
 	}
 
 	private void assertAmount(Amount actual, Amount expected) {

@@ -10,7 +10,7 @@ import org.junit.Test;
 
 public class QuickBeforeAfterTest {
 	
-	@BeforeClass
+	@BeforeClass//
 	public static void beforeClass(){
 		System.out.println("Before Class");
 	}
