@@ -31,6 +31,7 @@
 			<version>RELEASE</version>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -44,6 +45,19 @@
 					<source>1.8</source> <!-- QUESTION : WHAT IS 1.8 HERE? -->
 					<target>1.8</target>
 					<showWarnings>true</showWarnings>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.pitest</groupId>
+				<artifactId>pitest-maven</artifactId>
+				<version>1.7.0</version>
+				<configuration>
+					<targetClasses>
+						<param>com.client.junit*</param>
+					</targetClasses>
+					<targetTests>
+						<param>com*</param>
+					</targetTests>
 				</configuration>
 			</plugin>
 		</plugins>
