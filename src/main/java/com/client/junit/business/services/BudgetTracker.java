@@ -1,5 +1,8 @@
 package com.client.junit.business.services;
 
+import com.client.junit.model.Transaction;
+import com.client.junit.model.TransactionType;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,25 +16,29 @@ public class BudgetTracker {
     }
 
     public void addIncome(String source, BigDecimal amount) {
-        Transaction income = new Transaction(TransactionType.INCOME, source, amount);
-        transactions.add(income);
+        if (amount.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IllegalArgumentException("Income amount cannot be negative");
+        }
+        transactions.add(new Transaction(TransactionType.INCOME, source, amount));
     }
 
     public void addExpense(String description, BigDecimal amount) {
-        Transaction expense = new Transaction(TransactionType.EXPENSE, description, amount);
-        transactions.add(expense);
+        if (amount.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IllegalArgumentException("Expense amount cannot be negative");
+        }
+        transactions.add(new Transaction(TransactionType.EXPENSE, description, amount));
     }
 
     public BigDecimal getTotalIncome() {
         return transactions.stream()
-                .filter(t -> t.getType() == TransactionType.INCOME)
+                .filter(t -> t.getTransactionType() == TransactionType.INCOME)
                 .map(Transaction::getAmount)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
     public BigDecimal getTotalExpenses() {
         return transactions.stream()
-                .filter(t -> t.getType() == TransactionType.EXPENSE)
+                .filter(t -> t.getTransactionType() == TransactionType.EXPENSE)
                 .map(Transaction::getAmount)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
@@ -42,33 +49,4 @@ public class BudgetTracker {
         return totalIncome.subtract(totalExpenses);
     }
 
-    // Inner class to represent transactions
-    private static class Transaction {
-        private TransactionType type;
-        private String description;
-        private BigDecimal amount;
-
-        public Transaction(TransactionType type, String description, BigDecimal amount) {
-            this.type = type;
-            this.description = description;
-            this.amount = amount;
-        }
-
-        public TransactionType getType() {
-            return type;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public BigDecimal getAmount() {
-            return amount;
-        }
-    }
-
-    // Enum to represent the type of transactions
-    private enum TransactionType {
-        INCOME, EXPENSE
-    }
 }
