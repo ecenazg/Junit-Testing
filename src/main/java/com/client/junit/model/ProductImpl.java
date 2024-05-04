@@ -31,18 +31,11 @@ public class ProductImpl implements Product {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	@Override
 	public ProductType getType() {
 		return type;
 	}
 
-	public void setType(ProductType type) {
-		this.type = type;
-	}
 
 	@Override
 	public Amount getAmount() {

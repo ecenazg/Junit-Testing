@@ -25,13 +25,6 @@ public class Transaction {
         this.transactionType = transactionType;
     }
 
-    public String getSource() {
-        return source;
-    }
-
-    public void setSource(String source) {
-        this.source = source;
-    }
 
     public BigDecimal getAmount() {
         return amount;

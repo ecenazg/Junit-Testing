@@ -8,7 +8,6 @@ public class StringHelper {
 
 		String first2Chars = str.substring(0, 2);
 		String stringMinusFirst2Chars = str.substring(2);
-
 		return first2Chars.replaceAll("A", "") + stringMinusFirst2Chars;
 	}
 	
@@ -20,9 +19,7 @@ public class StringHelper {
 			return true;
 
 		String first2Chars = str.substring(0, 2);
-
 		String last2Chars = str.substring(str.length() - 2);
-
 		return first2Chars.equals(last2Chars);
 	}
 

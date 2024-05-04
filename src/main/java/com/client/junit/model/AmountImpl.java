@@ -13,18 +13,12 @@ public class AmountImpl implements Amount {
 		this.currency = currency;
 	}
 
-	public void setValue(BigDecimal value) {
-		this.value = value;
-	}
 
 	@Override
 	public BigDecimal getValue() {
 		return value;
 	}
 
-	public void setCurrency(CurrencyType currency) {
-		this.currency = currency;
-	}
 
 	@Override
 	public CurrencyType getCurrency() {
